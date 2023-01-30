@@ -1,0 +1,146 @@
+body {
+    background-color: #f4f6fa;
+    font-family: "Archivo";
+  }
+  * {
+    font-family: "Archivo";
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .password-container h1 {
+    position: absolute;
+    top: 70px;
+    left: 80px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 1.1%;
+  }
+  .instruction {
+    color: #021c3e;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    font-family: "Archivo";
+    font-size: 16px;
+    opacity: 0.5;
+    position: absolute;
+    top: 120px;
+    left: 80px;
+  }
+  .password-container {
+    background-color: #ffff;
+    display: flex;
+    align-items: center;
+  
+    /* justify-content: center; */
+    position: absolute;
+    width: 609px;
+    height: 650px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .password-field {
+    font-family: "Archivo";
+    box-sizing: border-box;
+    position: absolute;
+    top: 240px;
+    left: 80px;
+    background: #f9fafc;
+    border: 1px solid #bcc7d3;
+    border-radius: 3px;
+    padding: 15px;
+    width: 460px;
+    transition: all 0.2s ease-in-out, 0.2s ease-in-out;
+  }
+  .password-field2 {
+    font-family: "Archivo";
+    box-sizing: border-box;
+    position: absolute;
+    top: 370px;
+    left: 80px;
+    background: #f9fafc;
+    border: 1px solid #bcc7d3;
+    border-radius: 3px;
+    padding: 15px;
+    width: 460px;
+    transition: all 0.2s ease-in-out, 0.2s ease-in-out;
+  }
+  .password-txt {
+    position: absolute;
+    top: -40px;
+  }
+  .password-label {
+    color: #464a53;
+    position: absolute;
+    top: 200px;
+    left: 80px;
+    font-size: 14px;
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  .confirm-label {
+    color: #464a53;
+    position: absolute;
+    top: 330px;
+    left: 80px;
+    font-size: 14px;
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  .continue-btn3 {
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    width: 460px;
+    background: #ec7406;
+    padding: 16px, 192px;
+    gap: 10px;
+    height: 50px;
+    top: 520px;
+    left: 80px;
+    border: 1px solid #bcc7d3;
+    border-radius: 3px;
+  }
+  .checkbox{
+    position: absolute;
+    top:460px;
+    left:80px;
+    transform:scale(1.5);
+  }
+  .check-text{
+    position: absolute;
+    top:455px;
+    left:110px;
+    color:#464a53;
+    font-size:14px;
+    font-weight:400px;
+    font-style:normal;
+    line-height:22px;
+  }
+  .forgot-text{
+    position: absolute;
+    top:455px;
+    left:430px;
+    color:#464a53;
+    font-size:14px;
+    font-weight:400px;
+    font-style:normal;
+    line-height:22px;
+  }
+  
