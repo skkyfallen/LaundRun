@@ -1,0 +1,87 @@
+body {
+  background-color: #f4f6fa;
+  font-family: "Archivo";
+}
+* {
+  font-family:"Archivo";
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.container h1 {
+  position: absolute;
+  top: 100px;
+  left: 80px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 1.1%;
+}
+.container p {
+  color: #021c3e;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  font-family: "Archivo";
+  font-size: 16px;
+  opacity: 0.5;
+  position: absolute;
+  top: 150px;
+  left: 80px;
+}
+.container {
+  background-color: #ffff;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  position: absolute;
+  width: 609px;
+  height: 482px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+label {
+  color: #464a53;
+   position: absolute;
+  left: 80px;
+  top: 200px;
+}
+.form-field {
+  font-family: 'Archivo';
+  box-sizing: border-box;
+  position: absolute;
+  top: 250px;
+  left: 80px;
+  background: #f9fafc;
+  border: 1px solid #bcc7d3;
+  border-radius: 3px;
+  padding:15px;
+  width:460px;
+  transition:all 0.2s ease-in-out, 0.2s ease-in-out;
+}
+.form-field:focus{
+}
+.form-field:focus::placeholder{
+  
+}
+.continue-btn{
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight:400;
+  line-height: 15px;
+  font-size:14px;
+  color:white;
+  position:absolute;
+  width: 460px;
+  background:#ec7406;
+  padding:16px, 192px;
+  gap:10px;
+  height:50px;
+  top:350px;
+  left:80px;
+}
