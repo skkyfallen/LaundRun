@@ -45,6 +45,7 @@ const AdminPassword = () => {
           <button
             className="continue-btn3"
             type="submit"
+            name="btn"
             onClick={handleContinueClick}
           >
             Continue
