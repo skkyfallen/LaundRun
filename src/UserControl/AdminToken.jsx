@@ -1,16 +1,20 @@
 import React from "react";
 import { useState } from "react";
 import "./AdminToken.css";
+import { useNavigate } from "react-router-dom";
 const AdminToken = () => {
+  const navigate = useNavigate();
   const [value, setValue] = useState({
     token: "",
   });
+
   const handleTokenChange = (event) => {
     setValue({ ...value, token: event.target.value });
   };
-  const handleContinueClick=(event) => {
+  const handleContinueClick = (event) => {
     event.preventDefault();
-  }
+    navigate("/password");
+  };
   return (
     <div class="main">
       <section className="container">
@@ -28,7 +32,13 @@ const AdminToken = () => {
             value={value.token}
             onChange={handleTokenChange}
           />
-          <button type="submit" class="continue-btn" onClick={handleContinueClick}>Continue</button>
+          <button
+            type="submit"
+            class="continue-btn"
+            onClick={handleContinueClick}
+          >
+            Continue
+          </button>
         </form>
       </section>
     </div>

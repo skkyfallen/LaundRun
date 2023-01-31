@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AdminPassword.css";
 const AdminPassword = () => {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     password: "",
     confirmPassword: "",
@@ -14,6 +16,7 @@ const AdminPassword = () => {
   };
   const handleContinueClick = (event) => {
     event.preventDefault();
+    navigate("/login");
   };
   return (
     <div class="main">
@@ -39,7 +42,11 @@ const AdminPassword = () => {
             value={values.confirmPassword}
             onChange={handleConfirmPasswordChange}
           />
-          <button className="continue-btn3" type="submit" onClick={handleContinueClick}>
+          <button
+            className="continue-btn3"
+            type="submit"
+            onClick={handleContinueClick}
+          >
             Continue
           </button>
         </form>
