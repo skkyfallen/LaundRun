@@ -120,8 +120,9 @@ body {
   .checkbox{
     position: absolute;
     top:460px;
-    left:80px;
+    left:-430px;
     transform:scale(1.5);
+    height:13px;
   }
   .check-text{
     position: absolute;
