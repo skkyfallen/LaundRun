@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./AdminToken.css";
 import { useNavigate } from "react-router-dom";
+import {validToken} from '../Assets/Regex.js';
 const AdminToken = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState({
@@ -9,7 +10,11 @@ const AdminToken = () => {
   });
 
   const handleTokenChange = (event) => {
-    setValue({ ...value, token: event.target.value });
+    const re = /^[0-9\b]+$/;
+    /* setValue({ ...value, token: event.target.value }); */
+    if (event.target.value===''|| re.test(event.target.value)){
+      setValue({ ...value, token: event.target.value });
+    }
   };
   const handleContinueClick = (event) => {
     event.preventDefault();
@@ -26,6 +31,7 @@ const AdminToken = () => {
           </label>
           <input
             type="text"
+            maxLength="4"
             className="form-field"
             placeholder="Enter 4-Digit Code"
             name="field"

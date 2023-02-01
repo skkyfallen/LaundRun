@@ -10,7 +10,7 @@ const AdminLogin = () => {
     setValues({ ...values, username: event.target.value });
   };
   const handlePasswordChange = (event) => {
-    setValues({ ...values, Password: event.target.value });
+    setValues({ ...values, password: event.target.value });
   };
   const handleContinueClick = (event) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ const AdminLogin = () => {
         <form className="password-form">
           <p className="password-label">Username or Email</p>
           <input
-            type="password"
+            type="text"
             placeholder="Enter your username or email"
             className="password-field"
             name="password-field"
@@ -39,7 +39,7 @@ const AdminLogin = () => {
             value={values.password}
             onChange={handlePasswordChange}
           />
-          <input type="checkbox" className="checkbox" />
+          <input type="checkbox" className="checkbox"/>
           <p className="check-text">Keep me signed in</p>
           <p className="forgot-text">Forgot Password?</p>
           <button className="continue-btn3" type="submit" onClick={handleContinueClick}>
