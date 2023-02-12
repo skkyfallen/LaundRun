@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* background-color: #1E1E1E; */
+}
+
+/* .navbar {
+  height: 50px;
+  padding: 10px;
+} */
+/* header{
+    height:30px;
+    background-color: white;
+    min-height:50% !important
+} */
+section h1 {
+  font-family: "archivo";
+
+  /* background-color: white; */
+  position: absolute;
+  top: 150px;
+  right: -59px;
+}
+header {
+  height: 70px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.circle {
+  background-color: black;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  display: flex;
+  position: relative;
+}
+.prof-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 60px;
+  margin-left: 1700px;
+  width: 1500px;
+}
+.table-container {
+  width: 500px;
+  height: 800px;
+  background-color: white;
+  /* position: absolute; */
+  /* right:-50px; */
+  position: absolute;
+  right: -500px;
+}
+.main-container {
+  width: 1500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

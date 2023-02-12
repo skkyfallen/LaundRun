@@ -20,10 +20,10 @@ const AdminLogin = () => {
       <section className="password-container">
         <h1 className="welcome">Hello,</h1>
         <p className="instruction">Sign in to your account</p>
-        <form className="password-form">
+        <form className="dfpassword-form">
           <p className="password-label">Username or Email</p>
           <input
-            type="text"
+            type="email"
             placeholder="Enter your username or email"
             className="password-field"
             name="password-field"
@@ -39,10 +39,16 @@ const AdminLogin = () => {
             value={values.password}
             onChange={handlePasswordChange}
           />
-          <input type="checkbox" className="checkbox"/>
+          <input type="checkbox" className="checkbox" />
           <p className="check-text">Keep me signed in</p>
-          <p className="forgot-text">Forgot Password?</p>
-          <button className="continue-btn3" type="submit" onClick={handleContinueClick}>
+          <p className="forgot-text">
+            <a href="/">Forgot Password?</a>
+          </p>
+          <button
+            className="continue-btn3"
+            type="submit"
+            onClick={handleContinueClick}
+          >
             Continue
           </button>
         </form>

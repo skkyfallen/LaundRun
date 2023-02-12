@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import AdminPassword from "./UserControl/AdminPassword.jsx"
 import AdminToken from "./UserControl/AdminToken.jsx";
 import AdminLogin from "./UserControl/AdminLogin.jsx";
+import AdminHome from './Components/Admin Home/AdminHome';
 import {Route, BrowserRouter,Routes} from "react-router-dom";
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
     <BrowserRouter>
     <div className="App">
       <Routes>
-        <Route path="/" element={<AdminToken/>}/>
+        <Route path="/" element={<AdminHome/>}/>
         <Route path="/password" element={<AdminPassword/>}/>
         <Route path="/login" element={<AdminLogin/>}/>
       </Routes>

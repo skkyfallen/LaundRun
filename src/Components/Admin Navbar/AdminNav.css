@@ -1,0 +1,72 @@
+* {
+  font-family: "Archivo";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav {
+  background-color: white;
+  width: 232px;
+  height: 990.4px;
+}
+nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+nav ul li a {
+  z-index: 1;
+  position: relative;
+  left: 20px;
+  text-decoration: none;
+  list-style: none;
+  color: #888f9b;
+  font-family: "Archivo";
+  font-size: 16px;
+  padding-left: 20px;
+  font-weight: 500;
+  line-height: 17px;
+  font-style: normal;
+  transition: all 0.3s ease-in-out, 0.2s ease-in-out;
+}
+nav ul li a :hover {
+  color: black;
+}
+nav ul li {
+  padding: 20px;
+  margin-top: 20px;
+}
+.icon-list li {
+  list-style: none;
+  position: relative;
+  top: -330px;
+  left: 20px;
+}
+.icon-list div {
+  font-size: 24px;
+  color: #888f9b;
+}
+.home-icon {
+  position: absolute;
+  top: -116px;
+}
+.people-icon {
+  position: absolute;
+  top: -98px;
+}
+.orders-icon {
+  position: absolute;
+  top: -82px;
+}
+.cash-icon {
+  position: absolute;
+  top: -63px;
+}
+.access-icon {
+  position: absolute;
+  top: -47px;
+}
+.setting-icon {
+  position: absolute;
+  top: -30px;
+}
