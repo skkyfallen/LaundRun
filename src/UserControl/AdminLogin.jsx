@@ -22,6 +22,7 @@ const AdminLogin = () => {
     .catch((error)=>{
       console.log(error);
       alert(error.response.data.errors)
+      window.location.reload(false)
     })
   }
   const navigate= useNavigate();
