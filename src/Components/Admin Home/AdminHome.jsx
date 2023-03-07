@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import axios from 'axios';
 import AdminNav from "../Admin Navbar/AdminNav.jsx";
 import "../Admin Navbar/AdminNav.css";
 import EmptyHeader from "./EmptyHeader.jsx";
@@ -6,9 +7,26 @@ import "./AdminHome.css";
 import {AiOutlineSearch} from "react-icons/ai";
 const AdminHome = () => {
 const [modal,setModal]= useState(false)
+const [email, setEmail]= useState('');
+const [selectedOption, setSelectedOption]=useState('');
 const toggleModal=()=>{
   setModal(!modal)
 }
+const handleSubmit=(event)=>{
+event.preventDefault();
+axios.post("https://api-laundry-marketplace.onrender.com/api/v1/auth/admin/invite",{
+  email:email,
+  role:"admin",
+})
+.then((response)=>{
+  console.log(response.data);
+})
+.catch((error)=>{
+  console.log(error);
+  console.log(error.response);
+})
+}
+
   return (
     <div>
       <header>
@@ -37,17 +55,15 @@ const toggleModal=()=>{
         <div className="overlay"></div>
           <div className="modal-content">
             <h1>Add Administrator</h1>
-            <form>
-            <p>Name</p>
-            <input type="text" className="modal-input" placeholder="eg Jason Skell"></input>
+            <form className="modal-form">
             <p>Email</p>
-            <input type="text" className="modal-input" placeholder="example.gmail.com"></input>
+            <input type="text"  value={email} onChange={(event)=> setEmail(event.target.value)}   className="modal-input" placeholder="example@gmail.com"></input>
             <p className="account-txt" name="account-txt" id="account-txt">Account  Type</p>
-            <select >
-              <option>Admin</option>
+            <select value={selectedOption} onChange={(event) => setSelectedOption(event.target.value)}>
+              <option>admin</option>
               <option>Super Admin</option>
             </select>
-            <button className="next-modal">Next</button>
+            <button className="next-modal" onClick={handleSubmit}>Next</button>
             </form>
         </div>
        </div>
