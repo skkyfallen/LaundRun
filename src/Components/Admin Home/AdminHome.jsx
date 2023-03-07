@@ -13,7 +13,7 @@ const [selectedOption, setSelectedOption]=useState('');
 const toggleModal=()=>{
   setModal(!modal)
 }
-const authenticated = useSelector(state=>state.authenticated)
+const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 const handleSubmit=(event)=>{
 event.preventDefault();
 axios.post("https://api-laundry-marketplace.onrender.com/api/v1/auth/admin/invite",{
@@ -33,9 +33,9 @@ axios.post("https://api-laundry-marketplace.onrender.com/api/v1/auth/admin/invit
     <div>
       <header>
         <div  className="prof-container">
-          {authenticated? (
-          <h1>USERNAME </h1>
-          ):(
+          {isAuthenticated ? (
+          <h2>USERNAME </h2>
+          ): (
             <h1>Login Here</h1>
           )}
         </div>
