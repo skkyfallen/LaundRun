@@ -1,9 +1,12 @@
 import React from "react";
 import axios from 'axios';
+import { useDispatch } from "react-redux";
+import {login} from '../Actions/authActions';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./AdminLogin.css";
 const AdminLogin = () => {
+  const dispatch= useDispatch();
  const [email, setEmail]=useState('');
  const [password, setPassword]= useState('');
  const [authenticated, setAuthenticated]= useState('')
@@ -16,7 +19,9 @@ const AdminLogin = () => {
     })
     .then((response)=>{
       console.log(response.data);
-       setAuthenticated(true);
+      const {access_token} = response.data.data.token;
+      localStorage.setItem('access_token', access_token);
+      dispatch(login());
        navigate("/AdminHome")
     })
     .catch((error)=>{

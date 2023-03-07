@@ -3,6 +3,7 @@ import axios from 'axios';
 import AdminNav from "../Admin Navbar/AdminNav.jsx";
 import "../Admin Navbar/AdminNav.css";
 import EmptyHeader from "./EmptyHeader.jsx";
+import { useSelector } from "react-redux";
 import "./AdminHome.css";
 import {AiOutlineSearch} from "react-icons/ai";
 const AdminHome = () => {
@@ -12,6 +13,7 @@ const [selectedOption, setSelectedOption]=useState('');
 const toggleModal=()=>{
   setModal(!modal)
 }
+const authenticated = useSelector(state=>state.authenticated)
 const handleSubmit=(event)=>{
 event.preventDefault();
 axios.post("https://api-laundry-marketplace.onrender.com/api/v1/auth/admin/invite",{
@@ -30,9 +32,12 @@ axios.post("https://api-laundry-marketplace.onrender.com/api/v1/auth/admin/invit
   return (
     <div>
       <header>
-        <div className="prof-container">
+        <div  className="prof-container">
+          {authenticated? (
           <h1>USERNAME </h1>
-          <span className="circle"></span>
+          ):(
+            <h1>Login Here</h1>
+          )}
         </div>
       </header>
 
@@ -51,7 +56,7 @@ axios.post("https://api-laundry-marketplace.onrender.com/api/v1/auth/admin/invit
           <input className="search-txt"type="text" placeholder="Search"></input>
         
         </div>
-       <div className="modal">
+       {/* <div className="modal">
         <div className="overlay"></div>
           <div className="modal-content">
             <h1>Add Administrator</h1>
@@ -66,7 +71,7 @@ axios.post("https://api-laundry-marketplace.onrender.com/api/v1/auth/admin/invit
             <button className="next-modal" onClick={handleSubmit}>Next</button>
             </form>
         </div>
-       </div>
+       </div> */}
       </div>
 
       <AdminNav />
