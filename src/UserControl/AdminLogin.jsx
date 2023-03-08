@@ -8,7 +8,7 @@ import "./AdminLogin.css";
 const AdminLogin = () => {
  const [email, setEmail]=useState('');
  const [password, setPassword]= useState('');
- const [authenticated, setAuthenticated]= useState('')
+/*  const [authenticated, setAuthenticated]= useState('') */
  const dispatch = useDispatch();
   const handleContinueClick = (event) => {
     event.preventDefault();
@@ -18,8 +18,8 @@ const AdminLogin = () => {
     })
     .then((response)=>{
       console.log(response.data);
-      const {access_token} = response.data.data.token;
-      localStorage.setItem('access_token', access_token);
+      const access_token = response.data.data.token;
+      localStorage.setItem('access_token',access_token);
        dispatch(login());
         navigate("/AdminHome");
       

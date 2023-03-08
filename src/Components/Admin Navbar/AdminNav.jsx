@@ -23,7 +23,7 @@ const AdminNav = () => {
             <a href="withdrawals">Withdrawals</a>
           </li>
           <li>
-            <a href="/accessControl">Access Control</a>
+            <a href="/AdminHome">Access Control</a>
           </li>
           <li>
             <a href="/settings">Settings</a>

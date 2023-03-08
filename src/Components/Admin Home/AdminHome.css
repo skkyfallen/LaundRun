@@ -194,10 +194,14 @@ top:30px;
 margin-top:40px;
 }
 .close-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 7px;
+  position: relative;
+  top: px;
+   left:180px;
+  /* padding: 5px 7px; */
+  width:20px;
+  height:20px;
+  background-color: white;
+  border:none;
 }
 .modal-form{
   position: relative;
@@ -224,4 +228,23 @@ select{
   right: 200px;
   border:none;
   height:50px;
+}
+.home-login{
+  background-color: #EC7406;
+  width:100px;
+  border: 1px solid #EC7406;
+  height:45px;
+  position: relative;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+
+}
+
+.admin-table-container{
+  font:"Archivo";
+  position:relative;
+  /* top:-180px; */
 }
