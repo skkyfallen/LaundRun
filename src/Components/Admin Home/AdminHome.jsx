@@ -22,6 +22,9 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const AdminHome = () => {
+  const [state,setState]= useState({
+    /* sAuthenticated, */
+  });
   const [data, setData] = useState([]);
   const [modal, setModal] = useState(false);
   const [email, setEmail] = useState("");
@@ -48,7 +51,17 @@ const AdminHome = () => {
       .catch((error) => {
         console.log(error);
       });
+  }, [],);
+  useEffect(() => {
+    localStorage.setItem('state', JSON.stringify(state));
+  }, [state]);
+  useEffect(() => {
+    const savedState = localStorage.getItem('state');
+    if (savedState) {
+      setState(JSON.parse(savedState));
+    }
   }, []);
+
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const handleSubmit = (event) => {
     event.preventDefault();

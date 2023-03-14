@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* background-color: #1E1E1E; */
+  }
+  
+  /* .navbar {
+    height: 50px;
+    padding: 10px;
+  } */
+  /* header{
+      height:30px;
+      background-color: white;
+      min-height:50% !important
+  } */
+  section h1 {
+    font-family: "archivo";
+  
+    /* background-color: white; */
+    position: absolute;
+    top: 150px;
+    right: -59px;
+  }
+  header {
+    height: 70px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+  }
+  .circle {
+    background-color: black;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    display: flex;
+    position: relative;
+  }
+  .prof-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 60px;
+    margin-left: 1700px;
+    width: 1500px;
+  }
+  .table-container {
+    width: 1530px;
+    height: 990.4px;
+    background-color: white;
+    position: absolute;
+    left: 300px;
+    top: 130px;
+  }
+  /* .main-container {
+    width: 1500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+   */
+  .access-head {
+    font-family: "archivo";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 40px;
+    margin-left: 30px;
+    margin-right: 1140px;
+  }
+  .table-head {
+    display: flex;
+  }
+  
+  
+  
+  #account-txt{
+    position: relative;
+    right:-90px;
+  }
+  
+  .next-modal{
+    position: relative;
+    top:120px;
+    background-color: #EC7406;
+    width:300px;
+    right: 200px;
+    border:none;
+    height:50px;
+  }
+  .home-login{
+    background-color: #EC7406;
+    width:100px;
+    border: 1px solid #EC7406;
+    height:45px;
+    position: relative;
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+  
+  }
+  
+  .admin-table-container{
+    font:"Archivo";
+    position:relative;
+    /* top:-180px; */
+  }

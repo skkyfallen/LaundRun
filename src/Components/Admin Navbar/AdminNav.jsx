@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { AiOutlineHome, AiOutlineSetting } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { BsCashCoin, BsPeople } from "react-icons/bs";
@@ -6,6 +7,10 @@ import { BiDollarCircle } from "react-icons/bi";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { IoIosSwitch } from "react-icons/io";
 const AdminNav = () => {
+  const navigate=useNavigate();
+  const handleMerchantsClick=()=>{
+    navigate("/merchants")
+  }
   return (
     <div>
       <nav>
@@ -14,7 +19,7 @@ const AdminNav = () => {
             <a href="/dashboard">Dashboard</a>
           </li>
           <li>
-            <a href="/merchants">Merchants</a>
+            <a onClick={handleMerchantsClick}>Merchants</a>
           </li>
           <li>
             <a href="/orders">Orders</a>

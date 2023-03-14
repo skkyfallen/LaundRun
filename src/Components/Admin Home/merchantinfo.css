@@ -1,0 +1,179 @@
+.prof-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 60px;
+  margin-left: 1700px;
+  width: 1500px;
+}
+.all-container {
+  background-color: grey;
+  width: 1530px;
+  height: 990.4px;
+  position: absolute;
+  left: 300px;
+  top: 130px;
+}
+.merchant-main-info {
+  background-color: white;
+  width: 1000px;
+  height: 425px;
+}
+.merchant-main-info h1 {
+  position: relative;
+  left: 100px;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.011em;
+  color: #021c3e;
+  margin-bottom: 7px;
+}
+.legalID {
+  position: relative;
+  left: 100px;
+  text-decoration: underline;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 16px;
+  text-decoration-line: underline;
+  color: #ec7406;
+  cursor: pointer;
+}
+.grid {
+  margin-top: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.grid-item {
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+  border-left: 1px solid black;
+  text-align: center;
+  padding: 20px;
+}
+
+.grid p {
+  margin-bottom: 10px;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 43px;
+  color: #6a707e;
+}
+.gird h3 {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 43px;
+  color: #464a53;
+}
+.merchant-bank-info {
+  background-color: white;
+  position: relative;
+  left: 1030px;
+  top: -348px;
+  width: 500px;
+  height: 425px;
+  box-shadow: 1.2px 2.08px 8px rgba(119, 119, 119, 0.1);
+}
+.show-more {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ec7406;
+}
+.bank-info-holder {
+  position: relative;
+  top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.bank-info-holder h3 {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.banks-holder {
+  position: relative;
+  top: 70px;
+  left:100px;
+}
+.banks-holder h2 {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 17px;
+  color: #000000;
+  margin-bottom:10px;
+}
+.banks-holder p {
+    margin-bottom:10px;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: #8a95a8;
+}
+.overview{
+    background-color: white;
+    height:200px;
+    width:1530px;
+    position: relative;
+    top:-325px;
+}
+@media only screen and (max-width: 768px) {
+  .grid-item {
+    width: calc(50% - 10px);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .grid-item {
+    width: 100%;
+  }
+}
+.overview-info{
+    position: relative;
+    top:20px;
+    left:-167px;
+    display:flex;
+    justify-content: space-evenly;
+}
+.overview-info-item p{
+margin-bottom:10px;
+font-family: 'Archivo';
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 20px;
+/* identical to box height, or 167% */
+
+display: flex;
+align-items: center;
+letter-spacing: 0.006em;
+
+color: #8B8F96;
+
+opacity: 0.9;
+
+}
+.overview-info-item h2{
+    margin-bottom:10px;
+}
