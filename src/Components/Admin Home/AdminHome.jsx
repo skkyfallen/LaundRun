@@ -3,10 +3,13 @@ import { useEffect } from "react";
 import axios from "axios";
 import AdminNav from "../Admin Navbar/AdminNav.jsx";
 import "../Admin Navbar/AdminNav.css";
+import Modal from "react-modal";
 import EmptyHeader from "./EmptyHeader.jsx";
 import { useSelector } from "react-redux";
-import "regenerator-runtime/runtime.js";
+import { useNavigate } from "react-router-dom";
 import "./AdminHome.css";
+import { useDispatch } from "react-redux";
+import { login, logout } from "../../UserControl/authSlice.js";
 import {
   Table,
   TableHead,
@@ -22,9 +25,18 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const AdminHome = () => {
-  const [state,setState]= useState({
+  const dispatch = useDispatch();
+  const persistLogin = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      dispatch(login(token));
+    }
+  };
+  const [state, setState] = useState({
     /* sAuthenticated, */
   });
+  const navigate = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
   const [data, setData] = useState([]);
   const [modal, setModal] = useState(false);
   const [email, setEmail] = useState("");
@@ -38,10 +50,19 @@ const AdminHome = () => {
       Authorization: `Bearer ${accessToken}`,
     },
   };
+  const handleCloseMenu = () => {
+    setShowMenu(false);
+  };
+  const handleLogout = () => {
+    navigate("/login");
+  }
+  const handleLogin=()=>{
+    navigate("/login");
+  }
   useEffect(() => {
     axios
       .get(
-        "https://api-laundry-marketplace.onrender.com/api/v1/admin/list",
+        "https://laundry-marketplace-api-production.up.railway.app/api/v1/admin/list",
         config
       )
       .then((response) => {
@@ -50,54 +71,57 @@ const AdminHome = () => {
       })
       .catch((error) => {
         console.log(error);
+        toast.error("You are Unauthorized to view this table");
       });
-  }, [],);
-  useEffect(() => {
-    localStorage.setItem('state', JSON.stringify(state));
-  }, [state]);
-  useEffect(() => {
-    const savedState = localStorage.getItem('state');
-    if (savedState) {
-      setState(JSON.parse(savedState));
-    }
   }, []);
+  useEffect(() => {
+    persistLogin();
+  }, [dispatch]);
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const handleSubmit = (event) => {
     event.preventDefault();
+
     axios
       .post(
-        "https://api-laundry-marketplace.onrender.com/api/v1/auth/admin/invite",
+        "https://laundry-marketplace-api-production.up.railway.app/api/v1/auth/admin/invite",
         {
           email: email,
-          role: "super-admin",
+          role: selectedOption,
         },
         config
       )
       .then((response) => {
         console.log(response.data);
         console.log(accessToken);
+        toast.success("Admin Invited Successfully");
       })
       .catch((error) => {
         console.log(error);
-        toast("error.response");
         console.log(error.response);
         console.log(accessToken);
+        toast.error("You are Unauthorized to carry out this action");
       });
   };
-
+  const convertBooleanToString = (value) => {
+    return value ? "Active" : "Inactive";
+  };
+  Modal.setAppElement("#root");
   return (
     <div>
       <header>
         <div className="prof-container">
           {isAuthenticated ? (
-            <h2>USERNAME </h2>
+            <>
+              <h2>USERNAME</h2>
+              <button className="home-login" onClick={handleLogout}>Logout</button>
+            </>
           ) : (
-            <button className="home-login">Login</button>
+            <button className="home-login" onClick={handleLogin}>Login</button>
           )}
         </div>
       </header>
-
+       
       <div className="table-container">
         <div className="table-head">
           <h1 className="access-head">Access Control</h1>
@@ -146,8 +170,9 @@ const AdminHome = () => {
                   value={selectedOption}
                   onChange={(event) => setSelectedOption(event.target.value)}
                 >
+                  <option></option>
                   <option>admin</option>
-                  <option>Super Admin</option>
+                  <option>super-admin</option>
                 </select>
                 <button className="next-modal" onClick={handleSubmit}>
                   Next
@@ -156,7 +181,6 @@ const AdminHome = () => {
             </div>
           </div>
         )}
-        ;
         <div className="admin-table-container">
           <TableContainer component={Paper} data={data}>
             <Table>
@@ -175,7 +199,7 @@ const AdminHome = () => {
               </TableHead>
               <TableBody>
                 {data.map((data) => (
-                  <TableRow key={data.id}>
+                  <TableRow key={data._id}>
                     <TableCell>
                       <input type="checkbox" />{" "}
                     </TableCell>
@@ -183,7 +207,10 @@ const AdminHome = () => {
                     <TableCell>{data.email}</TableCell>
                     <TableCell>{data.createdAt}</TableCell>
                     <TableCell>{data.role}</TableCell>
-                    <TableCell>{data.status}</TableCell>
+                    <TableCell>
+                      {" "}
+                      {convertBooleanToString(data.status)}{" "}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -193,7 +220,7 @@ const AdminHome = () => {
       </div>
 
       <AdminNav />
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./AdminPassword.css";
 const AdminSignUp = () => {
@@ -9,28 +9,30 @@ const AdminSignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken]= useState("");
-  const[confirmPassword,setConfirmPassword]= useState("");
+  const [token, setToken] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const handleContinueClick = (event) => {
     event.preventDefault();
-    axios.put("https://api-laundry-marketplace.onrender.com/api/v1/auth/admin/accept-invite",{
-      email:email,
-      firstname:firstName,
-      lastname:lastName,
-      token:token,
-      password:password,
-      confirmPassword:confirmPassword
-    })
-    .then((response)=>{
-      console.log(response.data)
-      navigate("/login")
-    })
-    .catch((error)=>{
-      alert(error.response.data);
-      console.log(error.response);
-    })
-    
-    
+    axios
+      .put(
+        "https://laundry-marketplace-api-production.up.railway.app/api/v1/auth/admin/accept-invite",
+        {
+          email: email,
+          firstname: firstName,
+          lastname: lastName,
+          token: token,
+          password: password,
+          confirmPassword: confirmPassword,
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+        navigate("/login");
+      })
+      .catch((error) => {
+        alert(error.response.data);
+        console.log(error.response);
+      });
   };
   return (
     <div class="main">
@@ -71,7 +73,7 @@ const AdminSignUp = () => {
             placeholder="Enter Token Sent to your Email"
             className="token-field"
             value={token}
-            onChange={(event)=>setToken(event.target.value)}
+            onChange={(event) => setToken(event.target.value)}
           />
           <p className="password-label2">Password</p>
           <input
@@ -81,14 +83,14 @@ const AdminSignUp = () => {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           ></input>
-          <p className="confirmingPasswordLabel">
-            Confirm Password
-          </p>
-          <input type="password"
-          placeholder="Re-Enter your Password"
-          className="confirmingPasswordField"
-          value={confirmPassword}
-          onChange={(event)=>setConfirmPassword(event.target.value)}/>
+          <p className="confirmingPasswordLabel">Confirm Password</p>
+          <input
+            type="password"
+            placeholder="Re-Enter your Password"
+            className="confirmingPasswordField"
+            value={confirmPassword}
+            onChange={(event) => setConfirmPassword(event.target.value)}
+          />
           <button
             className="continue-btn4"
             type="submit"

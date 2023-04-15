@@ -19,7 +19,7 @@ function App() {
           <Route path="/login" element={<AdminLogin />} />
           <Route path="/AdminHome" element={<AdminHome />} />
           <Route path="/merchants" element={<MerchantsHome/>}/>
-          <Route path="/merchantInfo" element={<MerchantInfo/>}/>
+          <Route path="/merchantInfo/:merchantId" element={<MerchantInfo/>}/>
         </Routes>
 
       </div>

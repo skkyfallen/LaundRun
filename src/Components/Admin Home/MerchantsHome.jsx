@@ -22,53 +22,78 @@ import {
 import { AiOutlineSearch } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Modal from "react-modal";
+Modal.setAppElement("#root");
 const AdminHome = () => {
   const navigate = useNavigate();
   const [selectedRow, setSelectedRow] = useState(null);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [merchants, setMerchants] = useState(null);
+  const [showDialog, setShowDialog] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [merchantId, setMerchantId] = useState(null);
   const accessToken = localStorage.getItem("access_token");
-  const handleRowClick = (event, data) => {
-    setSelectedRow(data.id);
-    navigate("/merchantInfo")
+  const handleCloseMenu = () => {
+    setMenuOpen(false);
   };
-  const handleCheckboxClick = async (event) => {
-    
-    try {
-      const response = await axios.get(
-        `https://api-laundry-marketplace.onrender.com/api/v1/admin/list/merchants:merchantId, configu`
-      );
-      const merchantId = response.data.data.merchants._id;
-      navigate("/merchantInfo", { state: { data: merchantId } });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ 
   const config = {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   };
+  const viewMerchant=(merchantId)=>{
+    axios.get(`https://laundry-marketplace-api-production.up.railway.app/api/v1/admin/list/merchants/${merchantId}`,config)
+    setMerchantId(merchantId)
+    console.log("merchantId:",merchantId)
+    navigate(`/merchantInfo/${merchantId}`)
+  }
   const convertBooleanToString = (value) => {
     return value ? "Active" : "Inactive";
   };
+  const handleMenuOpen = (merchants) => {
+    setMerchants(merchants);
+    setMenuOpen(true);
+  };
+  const handleApprove = (merchantId) => {
+    axios
+      .post(
+        "https://laundry-marketplace-api-production.up.railway.app/api/v1/admin/merchant/approve",
+        {
+          merchantId: merchantId,
+        },
+        config
+      )
+      .then((response) => {
+        console.log(response.data);
+        toast("Approved Successfully");
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  };
+
   useEffect(() => {
     axios
       .get(
-        "https://api-laundry-marketplace.onrender.com/api/v1/admin/list/merchants",
+        "https://laundry-marketplace-api-production.up.railway.app/api/v1/admin/list/merchants",
         config
       )
       .then((response) => {
         setData(response.data.data.merchants);
-        console.log(response.data.data.merchants);
+        console.log(response.data.data);
       })
       .catch((error) => {
         console.log(error);
       });
     setLoading(false);
+
   }, []);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
+ const handleLogin=()=>{
+    navigate("/login")
+ }
   return (
     <div>
       <header>
@@ -76,7 +101,7 @@ const AdminHome = () => {
           {isAuthenticated ? (
             <h2>USERNAME </h2>
           ) : (
-            <button className="home-login">Login</button>
+            <button className="home-login" onClick={handleLogin}>Login</button>
           )}
         </div>
       </header>
@@ -86,7 +111,7 @@ const AdminHome = () => {
           <h1 className="access-head">Merchants</h1>
         </div>
 
-        <div className="admin-table-container">
+        <div className="merchant-table-container">
           <TableContainer component={Paper} data={data}>
             <Table>
               <TableHead>
@@ -96,35 +121,44 @@ const AdminHome = () => {
                   <TableCell>Email</TableCell>
                   <TableCell>Phone Number</TableCell>
                   <TableCell>Status</TableCell>
-                  <TableCell></TableCell>
+                  <TableCell>Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {data.map((merchants) => (
-                  <TableRow
-                    key={data.id}
-                    onClick={(event) => handleRowClick(event, data)}
-                    selected={selectedRow === data.id}
-                  >
+                  <TableRow key={merchants._id}>
                     <TableCell>
-                      <Checkbox
-                        onClick={handleCheckboxClick}
-                        checked={selectedRow === data.id}
-                      ></Checkbox>
+                      <Checkbox ></Checkbox>
                     </TableCell>
                     <TableCell>{merchants.businessName}</TableCell>
                     <TableCell>{merchants.email}</TableCell>
                     <TableCell>{merchants.phoneNumber}</TableCell>
                     <TableCell>
-                      {" "}
                       {merchants.isActive}
                       {convertBooleanToString(merchants.isActive)}
+                    </TableCell>
+                    <TableCell>
+                      <button
+                         onClick={() => viewMerchant(merchants._id)}  
+                        className="select-merchant-btn"
+                      >
+                        .....
+                      </button>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </TableContainer>
+
+          {/* {menuOpen && (
+            <div className="dialog-container">
+              <h2>{merchants.businessName}</h2>
+              <button onClick={() => handleApprove(merchants._id)}>
+                Approve
+              </button>
+            </div>
+          )} */}
         </div>
       </div>
 

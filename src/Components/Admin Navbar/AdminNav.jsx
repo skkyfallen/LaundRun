@@ -6,70 +6,54 @@ import { BsCashCoin, BsPeople } from "react-icons/bs";
 import { BiDollarCircle } from "react-icons/bi";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { IoIosSwitch } from "react-icons/io";
+import { NavLink, useLocation } from "react-router-dom";
 const AdminNav = () => {
-  const navigate=useNavigate();
-  const handleMerchantsClick=()=>{
-    navigate("/merchants")
-  }
+  const navigate = useNavigate();
+  const handleMerchantsClick = () => {
+    navigate("/merchants");
+  };
+  const location = useLocation();
   return (
     <div>
       <nav>
         <ul>
-          <li>
-            <a href="/dashboard">Dashboard</a>
+          <li className={location.pathname === "/merchants" ? "active" : ""}>
+            <BsPeople className="icons" />
+            <span>
+              <NavLink to="/merchants" className="nav-link">
+                Merchants
+              </NavLink>
+            </span>
           </li>
-          <li>
-            <a onClick={handleMerchantsClick}>Merchants</a>
+          <li className={location.pathname === "/orders" ? "active" : ""}>
+            <CiDeliveryTruck className="icons" />
+            <span>
+              <NavLink to="/orders" className="nav-link">
+                Orders
+              </NavLink>
+            </span>
           </li>
-          <li>
-            <a href="/orders">Orders</a>
+          <li className={location.pathname === "/withdrawals" ? "active" : ""}>
+            <BiDollarCircle className="icons" />
+            <span>
+              <NavLink to="/withdrawals" className="nav-link">
+                Withdrawals
+              </NavLink>
+            </span>
           </li>
-          <li>
-            <a href="withdrawals">Withdrawals</a>
+          <li className={location.pathname === "/AdminHome" ? "active" : ""}>
+            <IoIosSwitch className="icons" />
+            <span>
+              <NavLink to="/AdminHome" className="nav-link">
+                Access Control
+              </NavLink>
+            </span>
           </li>
-          <li>
-            <a href="/AdminHome">Access Control</a>
-          </li>
-          <li>
-            <a href="/settings">Settings</a>
-          </li>
-        </ul>
-        <ul className="icon-list">
-          <li>
-            <div className="home-icon">
-              {" "}
-              <AiOutlineHome />
-            </div>
-          </li>
-          <li>
-            <div className="people-icon">
-              {" "}
-              <BsPeople />
-            </div>
-          </li>
-          <li>
-            <div className="orders-icon">
-              {" "}
-              <CiDeliveryTruck />
-            </div>
-          </li>
-          <li>
-            <div className="cash-icon">
-              {" "}
-              <BiDollarCircle />
-            </div>
-          </li>
-          <li>
-            <div className="access-icon">
-              {" "}
-              <IoIosSwitch />
-            </div>
-          </li>
-          <li>
-            <div className="setting-icon">
-              {" "}
-              <AiOutlineSetting />
-            </div>
+          <li className={location.pathname === "/settings" ? "active" : ""}>
+            <AiOutlineSetting className="icons" />
+            <span>
+              <NavLink to="/settings" className="nav-link">Settings</NavLink>
+            </span>
           </li>
         </ul>
       </nav>

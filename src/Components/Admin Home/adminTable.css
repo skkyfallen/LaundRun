@@ -1,0 +1,254 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* background-color: #1E1E1E; */
+  }
+  
+  /* .navbar {
+    height: 50px;
+    padding: 10px;
+  } */
+  /* header{
+      height:30px;
+      background-color: white;
+      min-height:50% !important
+  } */
+  section h1 {
+    font-family: "archivo";
+  
+    /* background-color: white; */
+    position: absolute;
+    top: 150px;
+    right: -59px;
+  }
+  header {
+    height: 70px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+  }
+  .circle {
+    background-color: black;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    display: flex;
+    position: relative;
+  }
+  .prof-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 60px;
+    margin-left: 1700px;
+    width: 1500px;
+  }
+  .table-container {
+    width: 1530px;
+    height: 990.4px;
+    background-color: white;
+    position: absolute;
+    left: 300px;
+    top: 130px;
+  }
+  /* .main-container {
+    width: 1500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+   */
+  .access-head {
+    font-family: "archivo";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 40px;
+    margin-left: 30px;
+    margin-right: 1140px;
+  }
+  .table-head {
+    display: flex;
+  }
+  .invite {
+    height: 60px;
+    width: 150px;
+    background: #ec7406;
+    border-radius: 3px;
+    border: 1px solid #ec7406;
+    margin-top: 20px;
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 15px;
+    margin-right: 30px;
+  }
+  .table-nav {
+    height: 300px;
+    position: relative;
+    top: 50px;
+  }
+  .table-nav ul {
+    display: flex;
+    flex-direction: row;
+  }
+  .table-nav li {
+    margin-left: 30px;
+  }
+  .table-nav li a {
+    margin: 20px;
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    text-decoration: none;
+    color: #abafb3;
+  }
+  .admin-txt {
+    position: relative;
+    left: -20px;
+  }
+  .table-nav li a:focus {
+    color: #ec7406;
+    border-bottom: 2px solid #ec7406;
+  }
+  .search-txt {
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    position: relative;
+    top: 40px;
+    left: 30px;
+  }
+  .search-txt:focus {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+  }
+  body.active-modal {
+    overflow-y: hidden;
+  }
+  
+  .btn-modal {
+    padding: 10px 20px;
+    display: block;
+    margin: 100px auto 0;
+    font-size: 18px;
+  }
+  
+  .modal,
+  .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+  }
+  
+  .overlay {
+    background: rgba(30, 30, 30, 0.9);
+  }
+  .modal-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #ffffff;
+    padding: 14px 28px;
+    border-radius: 3px;
+    width: 400px;
+    text-align: center;
+  }
+  .modal-content p {
+    position: relative;
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    left:-129px;
+    top:60px;
+  }
+  .modal-input{
+    background: #F9FAFC;
+  border: 1px solid #BCC7D3;
+  border-radius: 3px;
+  padding:13px;
+  height:40px;
+  width:300px;
+  position: relative;
+  top:30px;
+  margin-top:40px;
+  }
+  .close-modal {
+    position: relative;
+    top: px;
+     left:180px;
+    /* padding: 5px 7px; */
+    width:20px;
+    height:20px;
+    background-color: white;
+    border:none;
+  }
+  .modal-form{
+    position: relative;
+    top:40px;
+  }
+  #account-txt{
+    position: relative;
+    right:-90px;
+  }
+  select{
+    position: relative;
+    top:70px;
+  
+    width:300px;
+    height:50px;
+    outline:none;
+  
+  }
+  .next-modal{
+    position: relative;
+    top:120px;
+    background-color: #EC7406;
+    width:300px;
+    right: 200px;
+    border:none;
+    height:50px;
+  }
+  .home-login{
+    background-color: #EC7406;
+    width:100px;
+    border: 1px solid #EC7406;
+    height:45px;
+    position: relative;
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+  
+  }
+  
+  .admin-table-container{
+    font:"Archivo";
+    position:relative;
+    /* top:-180px; */
+  }
+  .table-main-container{
+    position: relative;
+    left:500px;
+  }

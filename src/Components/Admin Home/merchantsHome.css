@@ -103,8 +103,12 @@
   
   }
   
-  .admin-table-container{
+  .merchant-table-container{
     font:"Archivo";
     position:relative;
     /* top:-180px; */
+  }
+  .select-merchant-btn{
+    border:none;
+    background: none;
   }
