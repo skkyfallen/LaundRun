@@ -68,7 +68,7 @@ const AdminHome = () => {
       )
       .then((response) => {
         setData(response.data.data);
-        console.log(response.data.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -134,22 +134,7 @@ const AdminHome = () => {
             + Invite Administrator
           </button>
         </div>
-        <div className="table-nav">
-          <ul>
-            <li className="admin-txt">
-              <a href="/administrators"> Administrators</a>
-            </li>
-            <li>
-              <a href="/activity">Activity History</a>
-            </li>
-          </ul>
-
-          <input
-            className="search-txt"
-            type="text"
-            placeholder="Search"
-          ></input>
-        </div>
+       
         {modal && (
           <div className="modal">
             <div className="overlay" onClick={toggleModal}></div>

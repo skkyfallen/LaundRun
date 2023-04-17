@@ -52,6 +52,9 @@ const AdminHome = () => {
   const convertBooleanToString = (value) => {
     return value ? "Active" : "Inactive";
   };
+  const convertApprovedToString= (value) =>{
+    return value ? "Approved" : "Not Approved"
+  }
   const handleMenuOpen = (merchants) => {
     setMerchants(merchants);
     setMenuOpen(true);
@@ -103,7 +106,8 @@ const AdminHome = () => {
                   <TableCell>Store Name</TableCell>
                   <TableCell>Email</TableCell>
                   <TableCell>Phone Number</TableCell>
-                  <TableCell>Status</TableCell>
+                  <TableCell>Activity Status</TableCell>
+                  <TableCell>Approval Status</TableCell>
                   <TableCell>Actions</TableCell>
                 </TableRow>
               </TableHead>
@@ -119,6 +123,10 @@ const AdminHome = () => {
                     <TableCell>
                       {merchants.isActive}
                       {convertBooleanToString(merchants.isActive)}
+                    </TableCell>
+                    <TableCell>
+                      {merchants.isApproved}
+                      {convertApprovedToString(merchants.isApproved)}
                     </TableCell>
                     <TableCell>
                       <button

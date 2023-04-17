@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.table-class {
+  width: 100%;
+  position: relative;
+  left: 100px;
+  padding: 60px;
+}
+.orders-table-container {
+  width: 80%;
+  position: absolute;
+  left: 230px;
+  top:50px;
+}
+.orders-table-head {
+  position: relative;
+  top: 40px;
+  left: 200px;
+  font-family: "archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  margin-top: 40px;
+  margin-left: 30px;
+  margin-right: 1140px;
+  z-index: 1;
+}

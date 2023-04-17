@@ -64,7 +64,7 @@ header {
   background-color: white;
   position: absolute;
   left: 300px;
-  top: 130px;
+  top: 10px;
 }
 /* .main-container {
   width: 1500px;
@@ -271,7 +271,7 @@ select{
   background:none;
   width:1530px;
   left:0px;
-  top:-130px;
+  top:-10px;
   height:1300px;
   z-index: 0;
 }

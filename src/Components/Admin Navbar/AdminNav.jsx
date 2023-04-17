@@ -33,14 +33,6 @@ const AdminNav = () => {
               </NavLink>
             </span>
           </li>
-          <li className={location.pathname === "/withdrawals" ? "active" : ""}>
-            <BiDollarCircle className="icons" />
-            <span>
-              <NavLink to="/withdrawals" className="nav-link">
-                Withdrawals
-              </NavLink>
-            </span>
-          </li>
           <li className={location.pathname === "/AdminHome" ? "active" : ""}>
             <IoIosSwitch className="icons" />
             <span>
