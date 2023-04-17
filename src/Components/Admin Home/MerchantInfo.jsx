@@ -128,7 +128,7 @@ const MerchantInfo = () => {
                 </div>
               </>
             )}
-            <div className="overview">
+            {/* <div className="overview">
               <h1>Overview</h1>
               <div className="overview-info">
                 <div className="overview-info-item">
@@ -147,7 +147,7 @@ const MerchantInfo = () => {
                   <p>+6% from last month</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       ) : (

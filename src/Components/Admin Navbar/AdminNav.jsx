@@ -49,12 +49,7 @@ const AdminNav = () => {
               </NavLink>
             </span>
           </li>
-          <li className={location.pathname === "/settings" ? "active" : ""}>
-            <AiOutlineSetting className="icons" />
-            <span>
-              <NavLink to="/settings" className="nav-link">Settings</NavLink>
-            </span>
-          </li>
+          
         </ul>
       </nav>
     </div>

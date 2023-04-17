@@ -55,10 +55,11 @@ const AdminHome = () => {
   };
   const handleLogout = () => {
     navigate("/login");
-  }
-  const handleLogin=()=>{
+    dispatch(logout())
+  };
+  const handleLogin = () => {
     navigate("/login");
-  }
+  };
   useEffect(() => {
     axios
       .get(
@@ -114,14 +115,18 @@ const AdminHome = () => {
           {isAuthenticated ? (
             <>
               <h2>USERNAME</h2>
-              <button className="home-login" onClick={handleLogout}>Logout</button>
+              <button className="home-login" onClick={handleLogout}>
+                Logout
+              </button>
             </>
           ) : (
-            <button className="home-login" onClick={handleLogin}>Login</button>
+            <button className="home-login" onClick={handleLogin}>
+              Login
+            </button>
           )}
         </div>
       </header>
-       
+
       <div className="table-container">
         <div className="table-head">
           <h1 className="access-head">Access Control</h1>

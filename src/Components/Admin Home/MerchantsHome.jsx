@@ -56,23 +56,6 @@ const AdminHome = () => {
     setMerchants(merchants);
     setMenuOpen(true);
   };
-  const handleApprove = (merchantId) => {
-    axios
-      .post(
-        "https://laundry-marketplace-api-production.up.railway.app/api/v1/admin/merchant/approve",
-        {
-          merchantId: merchantId,
-        },
-        config
-      )
-      .then((response) => {
-        console.log(response.data);
-        toast("Approved Successfully");
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
-  };
 
   useEffect(() => {
     axios
@@ -84,7 +67,7 @@ const AdminHome = () => {
         setData(response.data.data.merchants);
         console.log(response.data.data);
       })
-      .catch((error) => {
+      .catch((error) => { 
         console.log(error);
       });
     setLoading(false);
